@@ -76,8 +76,18 @@ Responsive Design
   - Optimized table layouts
  
 Troubleshooting
-Issue                 Solution
-No rates loading      Check internet connection
-CORS errors           Use HTTPS or disable browser CORS
-Date picker empty     Modern browser required
-Tables not updating   Clear localStorage
+
+Issue                 - Solution
+No rates loading      - Check internet connection
+CORS errors           - Use HTTPS or disable browser CORS
+Date picker empty     - Modern browser required
+Tables not updating   - Clear localStorage
+
+
+
+
+Challenges Faced
+- Real-time Data Integration: Handling API connectivity issues and managing API request limits (rate limits).
+- Asynchronous Updates: Ensuring the UI updates promptly when new conversion data is fetched.
+- Currency Data Handling: Dynamically populating dropdowns for a large number of currencies while maintaining efficiency.
+- Frontend/Backend Synchronization: Ensuring the frontend properly interprets the JSON data returned by the API for the exchange rate chart
