@@ -1,0 +1,211 @@
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* HEADER */
+header {
+    background: #1e293b;
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    
+    button {
+        padding: 10px 18px;
+        border: none;
+        background: #3b82f6;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+        
+        &:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.header {
+    text-align: center;
+}
+
+#comparison {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* MAIN LAYOUT */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+/* SECTIONS */
+section {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+h1 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+/* SWITCH BUTTON */
+#switch1, #switch2 {
+    background: #10b981;
+    border: none;
+    padding: 8px 14px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    
+    &:hover {
+        background: #059669;
+    }
+}
+
+/* CONVERTER GRID */
+.converter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+    
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+select, input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+    font-size: 14px;
+    width: 100%;
+    
+    &:focus {
+        outline: none;
+        border-color: #3b82f6;
+    }
+}
+
+select {
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+}
+
+input {
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
+
+   &[type='number'] {
+      font-size: 1.5rem;
+   }
+}
+
+/* EQUIVALENCE TEXT */
+#equivalence {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* FILTERS */
+.filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* SPINNER */
+#spinner {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #3b82f6;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+    table-layout: fixed;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: #3b82f6;
+    color: white;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+tbody {
+   tr:nth-child(even) {
+      background: #f1f5f9;
+   }
+
+   tr:hover {
+      background: #e0f2fe;
+      transition: 0.2s;
+   }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .converter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+}
+
+#exchangeRates {
+   display: none;
+}

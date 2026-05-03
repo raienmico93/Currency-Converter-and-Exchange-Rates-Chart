@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currency Converter</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <button id="ccbutton">Currency Converter</button>
+                <button id="erbutton">Exchange Rates</button>
+            </nav>
+        </header>
+        <main id="main">
+       
+            <!-- Currency Converter Section -->
+            <section id="currencyConverter">
+                <div class="header">
+                    <h1>Currency Converter</h1>
+                    <button id="switch1" aria-label="Switch currencies">⇆ Switch</button>
+                </div>
+                
+       
+                <div class="converter-grid">
+                    <div>
+                        <div>
+                            <label for="from">From</label>
+                            <select id="from"></select>
+                        </div>
+                        <div>
+                            <input
+                                type="number" id="fromCurrency" step="0.001"
+                                inputmode="decimal" value="1" aria-label="Amount to convert"
+                            >
+                        </div>
+                    </div>
+                   
+                    <div>
+                        <div>
+                            <label for="to">To</label>
+                            <select id="to"></select>
+                        </div>
+                        <div>
+                            <input
+                                type="number" id="toCurrency" step="0.001"
+                                inputmode="decimal" placeholder="Converted amount" aria-label="Converted amount"
+                                readonly
+                            >
+                        </div>
+                    </div>
+                </div>
+       
+                <p id="equivalence"></p>
+                <br><br>
+
+                <div id="comparison">
+                    <div>
+                        <h4 id="caption1"></h4>
+                        <table id="curr1VsCurr2" class="converterTable">
+                            <thead>
+                                <tr>
+                                    <th id="c1Left"></th>
+                                    <th id="c2Right"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="exchange-rate-table-1"></tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h4 id="caption2"></h4>
+                        <table id="curr2VsCurr1" class="converterTable">
+                            <thead>
+                                <tr>
+                                    <th id="c2Left"></th>
+                                    <th id="c1Right"></th>
+                                </tr>
+                                
+                            </thead>
+                            <tbody id="exchange-rate-table-2"></tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </section>
+       
+            <!-- Exchange Rates Section -->
+            <section id="exchangeRates">
+                <div class="header">
+                    <h1>Exchange Rates</h1>
+                    <button id="switch2" aria-label="Switch currencies">⇆ Switch</button>
+                </div>
+                
+       
+                <div class="filters">
+                    <div>
+                        <label for="currency">Base Currency</label>
+                        <select id="currency">
+                            <option value="">All Currencies</option>
+                        </select>
+                    </div>
+       
+                    <div>
+                        <label for="compare">Compare To</label>
+                        <select id="compare">
+                            <option value="">All Currencies</option>
+                        </select>
+                    </div>
+       
+                    <div>
+                        <label for="date">Select Date</label>
+                        <input type="date" id="date">
+                    </div>
+                </div>
+                
+       
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Currency</th>
+                            <th>Quote</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listsRates"></tbody>
+                    
+                </table>
+            </section>
+        </main>
+        <div id="spinner">Loading...</div>
+    <script src="app.js"></script>
+    </body>
+</html>
