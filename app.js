@@ -1,3 +1,7 @@
+let main = document.getElementById("main")
+
+main.style.display = "none";
+
 async function currencyList() {
     const res = await fetch(`https://api.frankfurter.dev/v2/currencies`);
     const req = await res.json();
@@ -21,9 +25,6 @@ async function dropdown(dropdownID, curr="") {
         console.error(error);
     }
 }
-
-
-
 
 
 async function rates(base='', quote='', date='') {
@@ -51,6 +52,7 @@ async function currencyExchanger(base="", quote="", date="") {
         demo.innerHTML = '';
        
         const req = await rates(base, quote, date);
+        main.style.display = "block";
        
         spinner.innerHTML = "";
 
@@ -83,7 +85,7 @@ async function rate(from, to) {
     } else {
         url += `rates?base=${from}&quotes=${to}`
     }
-    
+   
     const res = await fetch(url);
     const req = await res.json();
     return req;
@@ -96,12 +98,12 @@ async function currencyConverter(from, to) {
     try {
         let c1Left = document.getElementById('c1Left');
         let c2Right = document.getElementById('c2Right');
-        
+       
         const from1 = document.getElementById('fromCurrency');
         const to1 = document.getElementById('toCurrency');
            
         let equivalence = document.getElementById('equivalence');
-    
+   
         let exchangeTable1 = document.getElementById("exchange-rate-table-1");
         let exchangeTable2 = document.getElementById("exchange-rate-table-2");
 
@@ -113,13 +115,13 @@ async function currencyConverter(from, to) {
 
         c1Left.innerHTML = from
         c2Right.innerHTML = to
-    
+   
         c2Left.innerHTML = to
         c1Right.innerHTML = from
 
         dropdown(currency2, from);
         dropdown(compare2, to);
-        
+       
         exchangeTable1.innerHTML = ''
         exchangeTable2.innerHTML = ''
 
@@ -131,7 +133,7 @@ async function currencyConverter(from, to) {
                 equivalence.innerHTML = `1 ${from} = ${req[0].rate} ${to}`
             }
             updateValue();
-    
+   
             from1.addEventListener('change', updateValue);
 
             values.forEach(value => {
@@ -144,14 +146,14 @@ async function currencyConverter(from, to) {
                     <td>${(reqReverse[0].rate*value).toFixed(3)} ${from}</td>
                 </tr>`
             })
-            
+           
         } else {
             const updateValue = () => {
                 to1.value = from1.value;
                 equivalence.innerHTML = `1 ${from} = 1 ${to}`
             }
             updateValue();
-    
+   
             from1.addEventListener('change', updateValue);
 
             values.forEach(value => {
@@ -165,8 +167,8 @@ async function currencyConverter(from, to) {
                 </tr>`
             })
         }
-        
-        
+       
+       
     } catch(error) {
         spinner.innerHTML = 'Unable to fetch exchange rates. Please try again later.';
         document.getElementById("main").innerHTML = "";
