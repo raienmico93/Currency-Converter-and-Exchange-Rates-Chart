@@ -119,8 +119,10 @@ async function currencyConverter(from, to) {
         c2Left.innerHTML = to
         c1Right.innerHTML = from
 
-        dropdown(currency2, from);
-        dropdown(compare2, to);
+        if (!currency2.hasChildNodes()) {
+            await dropdown(currency2, from);
+            await dropdown(compare2, to);
+        }
        
         exchangeTable1.innerHTML = ''
         exchangeTable2.innerHTML = ''
